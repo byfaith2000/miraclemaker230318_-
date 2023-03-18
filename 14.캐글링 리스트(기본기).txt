@@ -1,0 +1,41 @@
+
+21.10.12
+1. OMG! NLP with the DJIA and Reddit!
+https://www.kaggle.com/ndrewgele/omg-nlp-with-the-djia-and-reddit
+
+내노트
+https://www.kaggle.com/happystar2/notebook5466a26478/edit
+==>중간에 에러발생함
+
+21.10.19
+https://kaggle-kr.tistory.com/32
+   https://kaggle-kr.tistory.com/17?category=868316
+
+내 노트 : https://www.kaggle.com/happystar2/kaggle1025-titanic/edit/run/78535942
+
+
+21.11.20
+수업노트 : https://kaggle-kr.tistory.com/17?category=868316
+내 노트 : https://www.kaggle.com/happystar2/kaggle1120-1-titanic/edit/run/80282209
+
+
+22.1.4
+수업노트 : https://www.kaggle.com/rafjaa/resampling-strategies-for-imbalanced-datasets
+내 노트 : 
+
+
+22.1.10
+파이썬 공부
+내 노트 : https://www.kaggle.com/happystar2/notebook440b6ed01d/edit
+
+22.1.17
+https://www.kaggle.com/happystar2/exercise-functions-and-getting-help/edit
+=>처음 시작할 차례
+
+22.1.25
+https://www.kaggle.com/colinmorris/booleans-and-conditionals
+=>처음 시작할 차례
+
+22.1.27
+https://www.kaggle.com/happystar2/exercise-booleans-and-conditionals/edit
+=>처음 시작할 차례

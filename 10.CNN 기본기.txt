@@ -1,0 +1,25 @@
+기본기
+
+https://colab.research.google.com/drive/13wfLHygGnZeH4xZTcOHZpFR-HXS3Pheh?usp=sharing
+
+
+
+
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+from tensorflow.keras.utils import plot_model
+
+
+import os
+import zipfile
+
+zip = zipfile.ZipFile('dogs-vs-cats-400.zip', 'r')
+zip.extractall('dogs-vs-cats-400')
+zip.close()
+DATASET = 'dogs-vs-cats-400'

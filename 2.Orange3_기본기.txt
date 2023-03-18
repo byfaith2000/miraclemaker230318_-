@@ -1,0 +1,23 @@
+오렌지3 수업내용
+
+1단계 본질 : 데이타를 불러와서 필요행만 분리하는 것이 오렌지의 가장 본질적인 장점이다.
+
+1. 파일을 불러온다.(File)
+
+2. Data table로 파일이 잘 로딩되었는지 확인한다.(File>Data Table) (Skip할 건 skip한다.)
+
+3. 필요한 칼럼만 나오도록 한다. (File > select columns)
+
+4. 필요한 열(특성)만 나오도록 한다. (File > select rows)
+
+5. 필요한 feature를 추가한다.(Feature constructor)
+
+6. box plot을 그려본다. (File > Box Plot)
+
+7. Scatter plot을 그려본다.(File > Scatter Plot)
+
+8. 머신러닝을 위해 Linear regression을 선택한다.(File > Linear Regression)
+
+9. 알고자 하는 데이타를 파일에 업로드한다. 
+
+10. Predictions에 Linear Regression(모델)과 파일(예측하려고 하는 데이타)를 연결시키면 끝

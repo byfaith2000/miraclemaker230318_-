@@ -1,0 +1,210 @@
+<깃허브 기본기>
+
+1. 내컴에서 파일 만들고 깃허브와 연동하는 방법
+  - 깃허브 싸이트 접속 (https://github.com/)
+  - 좌측 New버튼
+  - Repository name 작성 및 Create repository
+   (옵션 : Public or Private(나와 내 동료만 볼 수 있음))
+  - Quick setup에서 uploading an existing file. 누름
+  - 드래그해서 파일 이동(각 파일을 이동시켜야 함)
+
+* 깃에 있는 소스파일들을 내 컴으로 옮기기(GUI 이용방식)
+- 해당 래퍼지트리에 있는 화면으로 이동
+- Code(녹색버튼) 버튼 눌러 HTTPS 주소 복사
+-VSC 열어(New창) Explore에서 Clone Repository 버튼 누름
+-상단에 해당 주소 붙여넣기
+- 저장할 장소 지정 하고 복사하면 끝
+
+* 깃에 있는 소스파일들을 내 컴으로 옮기기(터미널 명령어로)
+- 해당 래퍼지트리에 있는 화면으로 이동
+- Code(녹색버튼) 버튼 눌러 HTTPS 주소 복사
+-저장할 폴더 만든 후 VSC에 로딩
+-터미널에 다음 명령어
+git clone https://github.com/byfaith2000/miracle-maker.git .
+=>끝에 점이 없으면 miracle-maker 파일이 자동으로 만들어지고 거기에 파일 복사됨.
+ . 붙이면 현재 해당 폴더에 복사됨.
+
+*VSC에서 이전 변경점 확인하는 법
+- Source control 누름
+- Canges아래 변경 파일 보이면 해당 파일 클릭하면 됨
+
+
+2. 깃허브로 내 홈페이지 웹서버 만들기
+-해당 래퍼지토리에 가서
+-위 메뉴에서 세팅
+-좌측 하단에 pages 누름
+-중간쯤 Source 에서 Branch를 master로 선택 후 save(시간이 좀 걸릴 수 있음)
+
+3. 내컴에서 코드 수정 후 깃허브와 동기화하는 법
+-내 컴에서 코드 수정(※ 깃 허브의 떙겨온 폴더여야 함.)
+-소스 컨츠롤에서 commit(체크표시)
+-더 보기 눌러서 push
+
+4. 깃허브에서 코드 수정 후 내 컴과 동기화하는 법
+-깃 허브에서 코드 수정(※ Edit this file-연필표시 누르면 편집가능)
+- commit changes
+-소스 컨츠롤에서 더 보기 눌러서 pull하면 끝
+
+*터미널에서 git log 후 q버턴 누르면 빠져나옴
+
+* 로그 간결하게 볼 수 있음 : git log --oneline --all
+
+* 현재 버전의 부모는 헤더이다. 
+  지금 만든 버전의 commint id가 만들어지면 그 id가 head가 된다.
+  체크아웃은 head를 움직인다. 
+   => git graph에서 이전 버전 description에 오른쪽 단축키 누르고 체크아웃을 누르면
+    vsc explore가면 이전 버전이 로딩됨.
+   => head가 해당 id가 되면 staged area와 working area가 해당 id로 바뀜
+
+*시간여행 끝내고 다시 돌아올 때 명령어
+터미널에서 git checkout main  하거나 git grahp의 main 오른쪽 단축키에서 checkout branch
+이렇게 하면 별일 안생김
+
+*head 는 현재 working area를 가르킨다. 
+ main는 마지막 버전을 가리킨다. main를 통해서 마지막 버전으로 쉽게 돌아온다. 
+
+* git graph head 라인의 공터에 오른쪽 단축키 > check out하면 head 테두리가 비활성화됨
+  이걸 detatched head라고 함, 이때 head는 commit id를 직접 가리키게 된다.
+  이때 main에서 오른쪽 단축키 > checkout branch누르면 exp(새로 만든 파일) 날라감.(실제 안날라감)
+  ※ 실험적인 버전이 생성되었고 head가 detach된 상태에서 일어나는 일임
+  => 이 것을 통해 실험적인 작업을 할 수 있다. 
+  (※ 테두리가 활성화되면 Head가 main를 가르키고 main는 commit id를 가르킴)
+
+※실험적인 코딩을 하다가 일상적인 화면으로 돌아올 수 있다. 
+-main에서 오른쪽 단축키에서 checkout branch 누르면 head가 main로 붙고 실험적인 버전은 삭제된다.
+-그런데 실험적인 버전의 commit id만 알고 있으면 다시 복구할 수 있다. 
+-그런데 commit id가 길고 어려우니 실험적인 버전에 이름을 붙여준다.
+-이름 붙이는 법 : head가 실험적인 버전에 있도록한다. ->터미널 명령어 : git branch 이름명
+-실험적 버전에 이름 안 붙인 상태에서 main를 checkout branch하면 실험버전이 날라가고
+ 실험버전에 이름 붙이고 나면 main를 checkout branch해도 실험버전 안날라감
+
+☆실험적인 버전 만들다가 다시 main로 체크아웃한 후 main에서 추가 변경점 한 후
+commit하면 실험적인 버전은 가지처럼 생겨나고 추가변경 버전은 head 및 main가 됨
+
+* 병합 : 가지처럼 나와 있는 실험적인 버전을 현재 master버전에 합하는 것
+-실험적인 버전 오른쪽 단축키 > merge into current branch
+
+*실험버전에 이름을 갖다 붙이면 그게 브랜치라고 한다. 
+
+결론적인 내용으로는 head를 detached한 상태에서 실험적인 작업(branch생성)을 할 수 있다. 
+일상적인 작업과 실험적인 작업을 동시에 진행할 수 있다. 
+실험적인 작업을 하기 위해서는 실험버전을 마음대로 삭제하거나 병합할 수 있어야 한다. 
+삭제는 실험적인 버전에서 오른쪽 단축키 누르니 delete있음, 아님 이름 안 붙였으면 main에서
+checkout branch 누르니 자동 삭제됨.
+병합은 merge into current branch
+
+*깃 그래프에서 브랜치 생성방법
+-main에서 오른쪽 단축키 > creative branch > 브랜치명 입력 > 브랜치 생성
+>브랜치를 활성화(파란색 네모표시)해줘야 함(checkout)
+
+* 한 프로젝트 폴더에 left, right 만들어서 버전 만드는 방법
+
+
+[생활코딩]
+1. Local PC에 프로젝트 폴더를 만든다.
+
+2. 프로젝트를 드래그해서 VSC에 떨어 뜨린다. 
+
+3. VSC 좌측에 source control(브랜치 모양)을 눌러 Initialize Repository를 누른다. 
+   이걸 눌러야 프로젝트 폴더안에 git 저장소가 생긴다. 
+
+4. 프로젝트 밑에 3개의 파일을 만들고 각각 1, 2, 2 내용을 입력한다. 
+  (work1.txt, work2.txt, work3.txt)
+
+5. source control가서 work1만 + 선택한다.
+
+6. 변경점 내용입력 후 체크표시 누른다.(commit = git에게 제출하는 것)
+
+7. 터미널에서 git log 명령하면 로그 내용 보인다. 
+
+8. commit을 누르면 git은 그에 해당하는 commit ID를 만든다.(40글자 조합)-Log에서 보임.
+
+9. 지금 만든 버전이 무엇인지 Head에 기록한다. 그러나 Head에 직접 기록하지 않고
+  Head가 Master를 가르키므로 Master에 기록한다. 
+
+10. 저장소를 만들면 기본적으로 Head가 생기고, Head는 Master(또는 Main)를 가르킨다. 
+
+*두번째 변경점(work2, work3)
+11. work2, work3도 + 누르고 메시지 입력한 후 commit한다. 
+   그러면 새로운 commit ID가 생기는데 새로운 commit ID는 이전 버전(부모)뭔지 알고 있다. 
+
+*git graph에서
+12. Head는 master 앞에 있는 동그라미이다. 
+
+13. master 둘레에 파란 실선이 있다면 Head가 master를 가르키고 있다는 것이다. 
+
+*6강-시간여행
+14. 과거 버전으로 가고 싶다면 Head를 해당 commit ID(work 1)로 이동시키면 됨.
+    이때 사용하는 명령어가 check out이다. 
+    터미널에 git checkout ID...ID는 40글자 다 안쓰고 몇 글자만 써도 됨.
+    그럼 동그라미(Head)는 work1으로 옮겨지고 master 둘레는 회색으로 바뀜
+    Head를 옮겨서 어떤 버전으로도 시간여행을 맘대로 할 수 있다. 
+
+  git log --all : 모둔 로그 다 볼 수 있음(work2 도 보임)
+  git log --all --oneline : 로그를 한 줄로 볼 수 있음.
+
+15. 시간여행해서 버그가 있는 곳을 찾아냈으면 현재 버전으로 돌아와 수정해줘야 한다. 
+   이때 master는 마지막 버전이다. 
+   Head가 가장 중요하다. 
+   두 가지 방법이 있다. 
+   git checkout 마지막 버전 ID
+   git checkout master  <==이걸 사용하는 게 낫다. 
+
+   git graph에서는 
+   work1 옆에 단축키 눌러 checkout 누르면 과거로 감
+   다시 master에서 단축키 눌러 checkout branch 누르면 마지막 버전으로 이동
+
+16. 변경점 발생시 source control에서 changes에 있는 리스트를 통해 변경점을 일목요연하게 볼 수 있는 것은 장점이다. 
+     변경된 리스트를 클릭하면 뭐가 변경되었는지 알 수 있다. (before, after)
+     Explore에서 수정된 파일 옆에 M이 붙는데, 이걸 통해서도 어느 부분이 수정되었는지 알 수 있다. 
+
+     작업한 걸 취소하고 싶을 때 : chages에 있는 리스트에 아이콘 가져가면 나오는 discard changes를 누르면 된다. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
